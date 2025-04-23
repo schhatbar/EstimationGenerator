@@ -4,38 +4,28 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // This script takes the current URL and converts it to the corresponding
-    // route in the main app. This handles the 404 error for client-side routing.
-    (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
+    // Simple GitHub Pages SPA 404 handler
+    // Redirects all requests back to index.html
     
-    // Get the repository name from the pathname
+    // Get the repository name from the pathname (first segment)
     var pathSegments = window.location.pathname.split('/');
-    var repoName = pathSegments[1]; // First segment after the initial slash
+    var repoName = pathSegments[1] || ''; // First segment after the initial slash
     
-    // Redirect to the index page while preserving the path
-    var redirectPath = window.location.origin + '/' + repoName + '/?p=' + 
-                      window.location.pathname.replace('/' + repoName, '').replace(/&/g, '~and~') + 
-                      window.location.search + window.location.hash;
+    // Create the redirect URL
+    var redirectUrl = window.location.origin + '/' + repoName;
     
-    window.location.replace(redirectPath);
+    // Redirect to the homepage
+    window.location.replace(redirectUrl);
   </script>
 </head>
 <body>
   <h1>Redirecting...</h1>
   <p>If you are not redirected automatically, <a id="redirect-link" href="">click here</a>.</p>
   <script>
-    document.getElementById('redirect-link').href = window.location.origin + '/' + window.location.pathname.split('/')[1];
+    // Update the link href
+    var pathSegments = window.location.pathname.split('/');
+    var repoName = pathSegments[1] || ''; // First segment after the initial slash
+    document.getElementById('redirect-link').href = window.location.origin + '/' + repoName;
   </script>
 </body>
 </html>

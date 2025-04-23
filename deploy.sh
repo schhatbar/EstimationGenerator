@@ -9,8 +9,9 @@ REPO_NAME=$(basename -s .git `git config --get remote.origin.url` 2>/dev/null ||
 echo "Detected repository name: $REPO_NAME"
 npx vite build --config gh-pages-vite.config.ts --base=/$REPO_NAME/
 
-echo "Creating .nojekyll file to prevent Jekyll processing..."
+echo "Creating GitHub Pages specific files..."
 touch gh-pages-build/.nojekyll
+cp client/public/404.html gh-pages-build/404.html
 
 echo "Deploying to GitHub Pages..."
 npx gh-pages -d gh-pages-build
