@@ -23,8 +23,9 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './attached_assets')
     },
   },
+  root: path.resolve(__dirname, 'client'),
   build: {
-    outDir: 'dist',
+    outDir: path.resolve(__dirname, 'gh-pages-build'),
     sourcemap: true,
   },
 });

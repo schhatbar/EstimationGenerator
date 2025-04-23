@@ -4,7 +4,7 @@
 set -e
 
 echo "Creating a special static build for GitHub Pages..."
-npx vite build --outDir ../../gh-pages-build --config gh-pages-vite.config.ts --base=/project-estimation/
+npx vite build --config gh-pages-vite.config.ts --base=/project-estimation/
 
 echo "Creating .nojekyll file to prevent Jekyll processing..."
 touch gh-pages-build/.nojekyll
