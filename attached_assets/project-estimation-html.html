@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development Project Estimation</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #17a2b8;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --success-color: #28a745;
+            --border-color: #dee2e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .logo {
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-height: 80px;
+        }
+        
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .quote-details {
+            text-align: right;
+        }
+        
+        .quote-details h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .client-details {
+            text-align: left;
+        }
+        
+        section {
+            margin: 30px 0;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .scope-list, .deliverables-list, .exclusions-list , .additional-services-list {
+            list-style-type: none;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .scope-list li, .deliverables-list li, .exclusions-list li , .additional-services-list li{
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .scope-list li:before, .deliverables-list li:before, .additional-services-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .exclusions-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--dark-color);
+            font-weight: bold;
+        }
+        
+        .timeline, .cost {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .cost {
+            background-color: #e8f4f8;
+        }
+        
+        .cost-highlight {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .payment-milestones {
+            margin-top: 15px;
+        }
+        
+        .payment-milestones div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .additional-services {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .contact-details {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-item i {
+            color: var(--primary-color);
+        }
+        
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+        
+        .signature-box {
+            width: 45%;
+            border-top: 1px solid var(--dark-color);
+            padding-top: 10px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .company-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .quote-details {
+                text-align: left;
+            }
+            
+            .signature-area {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .signature-box {
+                width: 100%;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <!-- Replace with your actual logo -->
+                <h1>Digitological</h1>
+            </div>
+            <h1>WordPress Website Development Project Estimation</h1>
+        </header>
+        
+        <div class="company-info">
+            <div class="client-details">
+                <h3>Client:</h3>
+                <p>MicroActive</p>
+                <!-- <p>[Client Address]</p>
+                <p>[Client Contact Info]</p> -->
+            </div>
+            
+            <div class="quote-details">
+                <h2>Quote #: WD-2025-04-11</h2>
+                <p><strong>Date:</strong> April 11, 2025</p>
+                <p><strong>Valid Until:</strong> May 11, 2025</p>
+            </div>
+        </div>
+        
+        <section>
+            <h2>Project Overview</h2>
+            <p>We will design and develop a professional, responsive, and SEO-optimized website using WordPress CMS that mirrors the layout, structure, and functionality of the reference site while aligning with your brand identity.</p>
+        </section>
+        
+        <section>
+            <h2>Scope of Work</h2>
+            <ul class="scope-list">
+                <li>Custom WordPress theme design and development</li>
+                <li>Homepage + Internal Pages (About Us, Products, Contact, etc.)</li>
+                <li>Product listing pages with images, specs, and inquiry options</li>
+                <li>Responsive mobile & tablet-friendly design</li>
+                <li>Basic SEO setup (meta tags, URLs, etc.)</li>
+                <li>Contact form with email notifications</li>
+                <li>WhatsApp updates, SMS updates and E-mail Updates</li>
+                <li>Speed & performance optimization</li>
+                <li>SSL and basic security configuration</li>
+                <li>Payment gateway</li>
+                <li>Yoast SEO Setup (Subscription ₹9,000/- Per Year)</li>
+                <li>6-months of post-launch support & maintenance</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Deliverables</h2>
+            <ul class="deliverables-list">
+                <li>Fully functional WordPress website</li>
+                <li>Admin panel access with basic usage training</li>
+                <li>Backup of site files and database</li>
+                <li>Support for deployment on client's server</li>
+            </ul>
+        </section>
+        
+        <section class="timeline">
+            <h2>Timeline</h2>
+            <p><strong>Total Duration:</strong> 30 Working Days</p>
+        </section>
+        
+        <section class="cost">
+            <h2>Commercials</h2>
+            <div class="cost-highlight">Total Cost: ₹1,25,000.00/- (Rupees One Hundred and Twenty Five Thousand Only)</div>
+            <div class="cost-highlight">Total Cost: ₹1,25,000.00/- (Rupees One Hundred and Twenty Five Thousand Only)</div>
+            <div class="cost-highlight">Total Cost: ₹1,25,000.00/- (Rupees One Hundred and Twenty Five Thousand Only)</div>
+            
+            <div class="payment-milestones">
+                <h3>Payment Milestones:</h3>
+                <div>
+                    <span>50% Advance Payment upon project initiation</span>
+                    <span>₹62,500/-</span>
+                </div>
+                <div>
+                    <span>50% Balance upon completion and prior to handover</span>
+                    <span>₹62,500/-</span>
+                </div>
+                <div>
+                    <span>Content Creation (if selected)</span>
+                    <span>₹10,000/-</span>
+                </div>
+                <div>
+                    <span>Yoast SEO Setup (if selected)</span>
+                    <span>₹12,000/-</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="additional-services">
+            <h2>Additional Services</h2>
+            <ul class="additional-services-list">
+                <li>Content Creation (if not provided by client): <strong>₹10,000/-</strong></li>
+            </ul>
+            <p><em>This includes professional copywriting for website pages, product descriptions, and basic SEO-optimized content.</em></p>
+        </section>
+        
+        <section>
+            <h2>Exclusions / Additional Costs</h2>
+            <ul class="exclusions-list">
+                <li>Domain & Hosting (can be arranged separately if required)</li>
+                <li>Content writing or stock images (if not provided by client)</li>
+                <li>Advanced features beyond scope will be quoted additionally</li>
+                <li>Third Party Integrations Registration and Cost related to that (Whatsapp Updates, E-mail Updates and SMS updates)</li>
+            </ul>
+        </section>
+        
+        <div class="signature-area">
+            <div class="signature-box">
+                <p>For Your Company Name</p>
+                <br><br>
+                <p>Authorized Signature</p>
+            </div>
+            
+            <div class="signature-box">
+                <p>For Client</p>
+                <br><br>
+                <p>Authorized Signature</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Thank you for considering our services. We look forward to working with you!</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <i>📧</i>
+                    <span>support@digitological.com</span>
+                </div>
+                <div class="contact-item">
+                    <i>📱</i>
+                    <span>+91 6351302062</span>
+                </div>
+                <div class="contact-item">
+                    <i>🌐</i>
+                    <span>www.digitological.com</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
