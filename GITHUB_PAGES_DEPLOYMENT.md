@@ -70,6 +70,16 @@ This application includes a 404.html file that handles client-side routing on Gi
 2. Verify your repository name was correctly detected in the deploy.sh output
 3. Try clearing your browser cache
 
+### Repository Name Handling
+
+For repositories with spaces or special characters in their names:
+
+1. The deployment script automatically converts spaces to hyphens and removes special characters
+2. Example: A repository named "Project Estimation/Tool" will be deployed to "/Project-EstimationTool/"
+3. This ensures URLs are properly formatted and reduces 404 errors on GitHub Pages
+
+You can see the clean repository name that was used in the deploy script output:
+
 ### Unable to deploy
 
 1. Check your GitHub access permissions

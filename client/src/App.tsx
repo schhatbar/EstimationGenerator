@@ -12,10 +12,18 @@ const useBasePath = () => {
   useEffect(() => {
     // Check if we're running in GitHub Pages
     // This assumes the repository name is the first path segment
-    const pathSegments = window.location.pathname.split('/');
+    const pathname = decodeURIComponent(window.location.pathname);
+    const pathSegments = pathname.split('/');
+    
     if (pathSegments.length > 1 && pathSegments[1]) {
       // We're in GitHub Pages or have a base path
-      setBasePath('/' + pathSegments[1]);
+      // For safety, let's clean the path
+      const cleanSegment = pathSegments[1]
+        .replace(/\s+/g, '-')          // Replace spaces with hyphens
+        .replace(/[^a-zA-Z0-9-]/g, ''); // Remove special characters
+      
+      setBasePath('/' + cleanSegment);
+      console.log("Using base path:", '/' + cleanSegment);
     }
   }, []);
   

@@ -8,11 +8,19 @@
     // Redirects all requests back to index.html
     
     // Get the repository name from the pathname (first segment)
-    var pathSegments = window.location.pathname.split('/');
+    var pathname = decodeURIComponent(window.location.pathname);
+    var pathSegments = pathname.split('/');
+    
+    // Clean the repository name for URL safety
     var repoName = pathSegments[1] || ''; // First segment after the initial slash
+    var cleanRepoName = repoName
+      .replace(/\s+/g, '-')         // Replace spaces with hyphens
+      .replace(/[^a-zA-Z0-9-]/g, ''); // Remove special characters
     
     // Create the redirect URL
-    var redirectUrl = window.location.origin + '/' + repoName;
+    var redirectUrl = window.location.origin + '/' + cleanRepoName;
+    
+    console.log("404 redirect: Using clean repo name:", cleanRepoName);
     
     // Redirect to the homepage
     window.location.replace(redirectUrl);
@@ -22,10 +30,14 @@
   <h1>Redirecting...</h1>
   <p>If you are not redirected automatically, <a id="redirect-link" href="">click here</a>.</p>
   <script>
-    // Update the link href
-    var pathSegments = window.location.pathname.split('/');
+    // Update the link href to use clean repo name
+    var pathname = decodeURIComponent(window.location.pathname);
+    var pathSegments = pathname.split('/');
     var repoName = pathSegments[1] || ''; // First segment after the initial slash
-    document.getElementById('redirect-link').href = window.location.origin + '/' + repoName;
+    var cleanRepoName = repoName
+      .replace(/\s+/g, '-')         // Replace spaces with hyphens
+      .replace(/[^a-zA-Z0-9-]/g, ''); // Remove special characters
+    document.getElementById('redirect-link').href = window.location.origin + '/' + cleanRepoName;
   </script>
 </body>
 </html>
